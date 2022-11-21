@@ -1,0 +1,33 @@
+<div
+  (click)="toggleComplete()"
+  class="todo-item"
+  [ngClass]="{ completed: todo.completed }"
+>
+  <div class="check-box">
+    <i class="material-icons">check</i>
+  </div>
+  <div class="todo-text">
+    {{ todo.text }}
+  </div>
+  <div
+    appTooltipSingleton
+    (click)="$event.stopPropagation()"
+    class="todo-controls-box"
+  >
+    <div
+      appTooltip="Add Todo"
+      (click)="onEditClicked()"
+      class="todo-control-button"
+    >
+      <i class="material-icons">edit</i>
+    </div>
+    <div
+      appTooltip="Delete Todo"
+      #deleteBtn
+      (click)="onDeleteClicked()"
+      class="todo-control-button is-danger"
+    >
+      <i class="material-icons">delete</i>
+    </div>
+  </div>
+</div>
