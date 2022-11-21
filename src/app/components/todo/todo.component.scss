@@ -1,0 +1,107 @@
+.todo-item {
+  display: flex;
+  align-items: center;
+  font-size: 18px;
+  padding: 35px 15px;
+  border-bottom: 1px solid #f2f3f5;
+  cursor: pointer;
+  position: relative;
+
+  &:hover .todo-controls-box {
+    opacity: 1;
+    visibility: visible;
+    transition-delay: 500ms;
+    transform: translateX(0px);
+  }
+
+  .todo-controls-box {
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s, transform 0.3s;
+    transform: translateY(5px);
+    position: absolute;
+    bottom: 0;
+    right: 5px;
+    display: flex;
+
+    .todo-control-button.is-danger:hover {
+      color: rgb(155, 27, 27);
+    }
+    .todo-control-button.is-danger:active {
+      color: rgb(155, 45, 45);
+    }
+
+    .todo-control-button {
+      color: #555;
+      background: #f5f7f8;
+      padding: 7px 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 4px;
+
+      &:hover {
+        background: #eee;
+        color: #333;
+      }
+
+      &:active {
+        background: #e5e7e8;
+      }
+
+      i.material-icons {
+        font-size: 1.25rem;
+      }
+
+      &:first-of-type {
+        border-top-right-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+
+      &:last-of-type {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+      }
+    }
+  }
+
+  &.completed {
+    color: #aaa;
+
+    .check-box {
+      background: rgb(11, 223, 170);
+      border: rgb(11, 223, 170);
+      i.material-icons {
+        opacity: 1;
+      }
+    }
+  }
+
+  &:hover .check-box {
+    background: #eee;
+    i.material-icons {
+      opacity: 0.28;
+    }
+  }
+
+  .check-box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #eee;
+    flex-shrink: 0;
+    border-radius: 50%;
+    width: 28px;
+    height: 28px;
+    margin-right: 20px;
+    transition: background-color 0.3s;
+
+    i.material-icons {
+      color: #333;
+      font-size: 20px;
+      opacity: 0;
+
+      transition: opacity 0.3s;
+    }
+  }
+}
